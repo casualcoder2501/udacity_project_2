@@ -27,10 +27,49 @@ The experiment yielded a model with an accuracy of .917 and this is the model th
 <img width="2036" alt="banking_best_model_completed" src="https://user-images.githubusercontent.com/28558135/134103014-ffb455ee-51a5-4777-8815-cdbea471fcc4.png">
 
 
-###
+### Capturing Logs and Enabling Application Insights
+<img width="2007" alt="azure-logs-output" src="https://user-images.githubusercontent.com/28558135/134103168-6193078e-8936-471d-a173-a42cb2740cd2.png">
+
+This was pretty straight forward. I included the code for enabling application insights with the code that gave the log output.
+
+<img width="1845" alt="azure-application-insights" src="https://user-images.githubusercontent.com/28558135/134103253-2b2189d4-1684-41fb-a01b-03a1af2c374c.png">
+
+### Swagger Documentation and Apache Benchmarking
+
+<img width="2024" alt="swagger-local-host" src="https://user-images.githubusercontent.com/28558135/134103316-11c3e7cd-d126-4f84-a52d-21331d61385d.png">
+
+The Swagger.json was downloaded and used to serve the swagger endpoint documentation on the local host. After this the Apache Benchmarking was run to ensure that the endpoint was receiving and outputing the correct json data.
+
+<img width="1963" alt="endpoint-result" src="https://user-images.githubusercontent.com/28558135/134103440-00345ea1-ab62-451f-9a41-0cf32b52e8d9.png">
+
+<img width="1174" alt="apache_benchmark" src="https://user-images.githubusercontent.com/28558135/134103463-8c1c4d54-7bf9-4887-bd0c-337f912ab53a.png">
+
+### Creating, Publishing, and Consuming The Pipeline
+
+<img width="2006" alt="pipeline_created" src="https://user-images.githubusercontent.com/28558135/134103598-43b257e7-ada4-4707-8664-6b4997f468cc.png">
+
+<img width="2018" alt="pipeline_endpoint" src="https://user-images.githubusercontent.com/28558135/134103620-8e2ce7bf-99a2-4f82-a481-901872598936.png">
+
+The pipeline was creating using the previously run AutoML experiment using the banking data and the best run was deployed to an endpoint. 
+<img width="2031" alt="banking_data_mlmodule" src="https://user-images.githubusercontent.com/28558135/134103652-c5ee7eee-3eb6-4e14-8ff6-950a741bf506.png">
+
+<img width="2008" alt="pipeline_endpoint_overview" src="https://user-images.githubusercontent.com/28558135/134103701-400e7364-5a80-4cc9-b4a8-bd823894002e.png">
+
+After publishing the pipeline the pipeline endpoint could be viewed from the Pipelines Section of AutoML
+
+<img width="1660" alt="jupyter_rundetails" src="https://user-images.githubusercontent.com/28558135/134103722-90c7fab5-6d74-4629-b8a6-c84d4e3827b3.png">
+
+The RunDetails would not run in the Azure Notebooks environment so I had to open the notebook in the Jupyter Editor to see the output of the rundetails. I did not have this issue with the previous project and further investigation would aid in a future experiment.
+
+<img width="2040" alt="scheduled_run" src="https://user-images.githubusercontent.com/28558135/134103748-ffbcbf61-e5a5-433f-bee0-2bed30905f8e.png">
+
+The pipeline was consumed and kicked off to ensure that the endpoint was functioning properly and compeleted successfully.
 
 ## Screen Recording
 https://youtu.be/_WSIqnUVAlc
 
 ## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+
+The Swagger documentation required that I include the swagger folder in the path after localhost:8000. For some reason the server was serving it from 1 level up from the swagger folder even though both the serve.py and swagger.json files were located in the swagger folder. Including /swagger/swagger.json in the localhost reference was the only way I could get this to work and I think mentioning this for other students may be helpful.
+
+The window that popped up after running benchmark.sh closed immediately after openning. I checked the application insights dashboard and confirmed that the endpoint was being tested. The only way I could get the apache benchmark to show me results was to run the command in my terminal outside of the .sh file. This may be helpful to other students who encounter this issue.
