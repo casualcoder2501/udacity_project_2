@@ -1,14 +1,16 @@
 from azureml.core import Workspace
 from azureml.core.webservice import Webservice
 
+
 # Requires the config to be downloaded first to the current working directory
-ws = Workspace.from_config()
+ws = Workspace.from_config("config.json")
 
 # Set with the deployment name
-name = ""
+name = "banking-model-deploy"
 
 # load existing web service
 service = Webservice(name=name, workspace=ws)
+service.update(enable_app_insights=True)
 logs = service.get_logs()
 
 for line in logs.split('\n'):
