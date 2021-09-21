@@ -1,9 +1,11 @@
 # Udacity Project 2: Pipelines and Deployment
 
-This objective of this project was to learn how to use Azure ML Studio to deploy and consume both autoML pipelines and stand-alone models. Swagger and Apache Benchmark were other technologies that were utilized for this project to both aid in documentation of the endpoint and testing the endpoint's capabilities in responding to user requests respectively.
+## Overview
+
+This objective of this project was to learn how to use Azure ML Studio to deploy and consume both autoML pipelines and stand-alone models. Swagger and Apache Benchmark were other technologies that were utilized for this project to both aid in documentation of the endpoint and testing the endpoint's capabilities in responding to user requests respectively. The dataset used was marketing information for a bank that contained customer demographics and contact times. The AutoML model and Pipeline attempted to predict the 'y' column which represented if the customer subscribed to a term deposit or not. Using a classification model we acheived 91.7% accuracy in predicting outcomes. The model was then deployed to an Azure Container Instance and consumed using a brief python script or Jupyter Notebook for testing. This same experiment was used to build a pipeline which we then deployed and tested. The purpose of the final pipeline was to demostrate the power of automating an ML process that could then be kicked off simply by posting to a deployed endpoint.
 
 ## Architectural Diagram
-![image](https://user-images.githubusercontent.com/28558135/134101936-648893b2-fc82-4845-b00d-6f6849583a2e.png)
+![image](https://user-images.githubusercontent.com/28558135/134224041-fe1e07b8-b8d9-4dbd-adcf-f111783bd4e4.png)
 
 ## Key Steps
 *TODO*: Write a short discription of the key steps. Remeber to include all the screenshots required to demonstrate key steps.
@@ -73,3 +75,7 @@ https://youtu.be/_WSIqnUVAlc
 The Swagger documentation required that I include the swagger folder in the path after localhost:8000. For some reason the server was serving it from 1 level up from the swagger folder even though both the serve.py and swagger.json files were located in the swagger folder. Including /swagger/swagger.json in the localhost reference was the only way I could get this to work and I think mentioning this for other students may be helpful.
 
 The window that popped up after running benchmark.sh closed immediately after openning. I checked the application insights dashboard and confirmed that the endpoint was being tested. The only way I could get the apache benchmark to show me results was to run the command in my terminal outside of the .sh file. This may be helpful to other students who encounter this issue.
+
+## Future Improvements
+
+To improve this experiment I would allow for deep learning to be enable on the classification model and give it more time to come up with a model with greater accuracy. Another improvement I would make is to see if there is any difference between the programmatic way of building the pipeline and the GUI way of building the pipeline in terms of speed of development and accuracy of the model that gets produced. The last improvement I would make is to see what the response time differences in Apache Benchmark are when manually creating an inference cluster with more resources available. If the response times were significantly improved I would then try to optimize for cost.
