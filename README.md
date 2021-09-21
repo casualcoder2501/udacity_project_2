@@ -6,7 +6,10 @@ This objective of this project was to learn how to use Azure ML Studio to deploy
 ![image](https://user-images.githubusercontent.com/28558135/134101936-648893b2-fc82-4845-b00d-6f6849583a2e.png)
 
 ## Key Steps
-*TODO*: Write a short discription of the key steps. Remeber to include all the screenshots required to demonstrate key steps. 
+*TODO*: Write a short discription of the key steps. Remeber to include all the screenshots required to demonstrate key steps.
+### Created a Service Principle
+<img width="725" alt="azure-az-auth" src="https://user-images.githubusercontent.com/28558135/134102097-3caf1210-9a0c-40e6-8ba7-ac52741468f3.png">
+
 
 ## Screen Recording
 https://youtu.be/_WSIqnUVAlc
